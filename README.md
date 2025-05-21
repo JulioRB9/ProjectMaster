@@ -38,7 +38,7 @@ Bienvenido a mi perfil de GitHub. Aquí encontrarás proyectos personales, colab
 <!-- You can use GitHub Actions or tools like GitHub Readme YouTube to auto-update this section -->
 
 - 🎥 [Título del Video 1](https://youtu.be/23vIfMPNyaw?si=wlOzUl58wRDQxl5n)
-- 🎥 [Título del Video 2](https://youtube.com/watch?v=videoID)
+<!-- - 🎥 [Título del Video 2](https://youtube.com/watch?v=videoID) -->
 
 ---
 
