@@ -1,5 +1,4 @@
 from django.shortcuts import render, HttpResponse
-from servicios.models import servicio
 
 # Create your views here.
 def home(request):
@@ -7,6 +6,3 @@ def home(request):
 
 def tienda(request):
     return render(request, "appFrontend/tienda.html")
-
-def contacto(request):
-    return render(request, "appFrontend/contacto.html")
