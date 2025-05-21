@@ -17,12 +17,12 @@ Bienvenido a mi perfil de GitHub. Aquí encontrarás proyectos personales, colab
 
 ## 📱 Conecta conmigo
 
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/tu-usuario)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/tu-usuario)
-[![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@tu-usuario)
-[![Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/tu-usuario)
-[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/tu-usuario)
-[![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@tu-usuario)
+[![GitHub](https://github.com/JulioRB9/ProjectMaster)](https://github.com/JulioRB9)
+[![LinkedIn](https://www.linkedin.com/in/julio-rivera-bautista/)](https://www.linkedin.com/in/julio-rivera-bautista/)
+[![YouTube](https://www.youtube.com/@Julio.Rivera.)](https://www.youtube.com/@Julio.Rivera.)
+<!-- [![Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/tu-usuario) -->
+<!-- [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/tu-usuario) -->
+[![TikTok](https://www.tiktok.com/@julio_riverab)](https://www.tiktok.com/@julio_riverab)
 
 ---
 
