@@ -1,6 +1,6 @@
 # ¡Hola, soy [Julio Rivera]! 👋
 
-🎯 **Desarrollador Full Stack | Apasionado por la tecnología | Creador de contenido**
+🎯 **Apasionado por la tecnología | Creador de contenido**
 
 Bienvenido a mi perfil de GitHub. Aquí encontrarás proyectos personales, colaboraciones, herramientas y experimentos de programación. Siempre estoy aprendiendo y compartiendo lo que descubro.
 
@@ -8,7 +8,7 @@ Bienvenido a mi perfil de GitHub. Aquí encontrarás proyectos personales, colab
 
 ## 🚀 Sobre mí
 
-- 🔭 Actualmente trabajando en: **[Tienda Online]**
+- 🔭 Actual estoy desarrollando: **[Tienda Online]**
 - 🌱 Aprendiendo: **[Lenguaje o Tecnología]**
 - 💬 Pregúntame sobre: **JavaScript, Python, APIs, bases de datos, automatización**
 - 📫 Cómo contactarme: usa cualquiera de mis redes sociales abajo 👇
