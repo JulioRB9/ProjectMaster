@@ -17,11 +17,17 @@
         color: #333;
     }
 </style>
+
 <div class="formulario">
+    {% if "ok" in request.GET %}
+        <h2 style="color: green;">Mensaje enviado correctamente</h2>
+    {% endif %}
+
     <form action="" method="post">
         {% csrf_token %}
         <table style="margin: 20px auto;">{{miformulario.as_table}}</table>
         <input type="submit" value="Enviar" class="btn btn-primary">
     </form>
 </div>
+
 {% endblock %}
