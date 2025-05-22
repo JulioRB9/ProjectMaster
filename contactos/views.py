@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from .forms import formularioContacto
 
 # Create your views here.
 def contacto(request):
-    return render(request, "appFrontend/contacto.html")
+    formulario = formularioContacto()
+    return render(request, "contactos/contacto.html", {"miformulario": formulario})
