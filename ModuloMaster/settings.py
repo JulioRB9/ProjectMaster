@@ -130,3 +130,13 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Configuracion de correo electronico
+EMAIL_BACKEND = 'django.core.outlook.EmailBackend'
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = '?'  # Reemplaza con tu correo electrónico
+EMAIL_HOST_PASSWORD = '?'  # Reemplaza con tu contraseña de correo electrónico
+
+
