@@ -132,10 +132,10 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configuracion de correo electronico
-EMAIL_BACKEND = 'django.core.outlook.EmailBackend'
-EMAIL_HOST = 'smtp-mail.outlook.com'
-EMAIL_PORT = 587
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com' # Reemplaza con el servidor SMTP de tu proveedor de correo electrónico
 EMAIL_USE_TLS = True
+EMAIL_PORT = 587
 EMAIL_HOST_USER = '?'  # Reemplaza con tu correo electrónico
 EMAIL_HOST_PASSWORD = '?'  # Reemplaza con tu contraseña de correo electrónico
 
