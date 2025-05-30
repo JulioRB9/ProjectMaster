@@ -15,17 +15,28 @@ def contacto(request):
             nombre = formulario.cleaned_data["nombre"]
             email_usuario = formulario.cleaned_data["emailUsuario"]
             contenido = formulario.cleaned_data["contenido"]
-            # print(f"Nombre: {nombre}, Email: {email}, Mensaje: {mensaje}")
+            
 
+            html_message = f"""
+                <h2 style="color: #2c3e50;">Nuevo mensaje de contacto</h2>
+                <p><strong>Nombre:</strong> {nombre}</p>
+                <p><strong>Email:</strong> {email_usuario}</p>
+                <p><strong>Mensaje:</strong></p>
+                <div style="background-color: #f4f4f4; padding: 15px; border-left: 4px solid #3498db;">
+                    {contenido}
+                </div>
+                <p style="font-size: 0.9em; color: #888;">Este mensaje fue enviado desde el formulario de contacto de tu sitio web.</p>
+                """
             # Enviar correo electrónico
             enviar_mensaje = EmailMessage(
-                subject="Nuevo mensaje de contacto de APP django",
-                body=f"El usuario {nombre} con email {email_usuario} ha enviado el siguiente mensaje:\n\n{contenido}",
+                subject="📩 Nuevo mensaje de contacto - APP Django",
+                body=html_message,
                 from_email="",
                 to=["julio.rivera.1596@gmail.com"],
                 reply_to=[email_usuario]
             )
-            
+            # Configurar el contenido del mensaje como HTML
+            enviar_mensaje.content_subtype = "html"  # Importante: indica que el contenido es HTML
             try:
                 enviar_mensaje.send()
                 return redirect("/contactos/?okEnviado")
