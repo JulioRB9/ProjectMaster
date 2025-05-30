@@ -19,10 +19,14 @@
 </style>
 
 <div class="formulario">
-    {% if request.GET.okEnviado %}
+    {% if "okEnviado" in request.GET %}
         <div class="alert alert-success">Tu mensaje se ha enviado correctamente.</div>
-    {% elif request.GET.failNoEnviado %}
-        <div class="alert alert-danger">Hubo un problema al enviar el mensaje. Inténtalo de nuevo.</div>
+    {% elif "failNoEnviado" in request.GET %}
+        <div class="alert alert-danger">Ha ocurrido un error al enviar tu mensaje. Por favor, inténtalo de nuevo.</div>
+    {% endif %}
+
+    {% if "errorFormulario" in request.GET %}
+        <div class="alert alert-warning">Por favor, completa todos los campos del formulario.</div>
     {% endif %}
 
     <form action="" method="post">
