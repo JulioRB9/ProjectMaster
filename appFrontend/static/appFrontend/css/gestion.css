@@ -143,7 +143,7 @@ p {
     width: 60%;
     margin-top: 3rem;
     background-color: rgb(24, 26, 27);
-    color: cornsilk;
+    color: rgb(255, 255, 255);
     position: absolute;
   }
 
@@ -172,7 +172,7 @@ p {
   padding: 3rem;
   margin: 0.5rem;
   background-color: rgba(24, 64, 8);
-  color: cornsilk;
+  color: rgb(255, 255, 255);
 }
 
 .cta .cta-inner:before {
