@@ -4,6 +4,7 @@ venvDj/
 
 # Archivos de Python
 __pycache__/
+migrations/
 *.py[cod]
 *.pyo
 
