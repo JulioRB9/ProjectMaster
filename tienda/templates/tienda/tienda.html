@@ -2,8 +2,27 @@
 {% load static %}
 {% block content %}
 
-    <section class="section" style="color: beige;">
-        <h2>*☆*――*☆*――*☆*――*☆*――*☆*――*☆*――*☆*――*☆*</h2>
-        <h2>TIENDA</h2>
-    </section> 
+
+{% for prod in productos %}
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            {% if prod.imagen %}
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{ prod.imagen.url }}" alt="{{ prod.nombre }}" style="width: 20%;">
+            {% else %}
+                <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'img/default.png' %}" style="color: brown;" alt="Sin imagen" style="width: 20%;">
+            {% endif %}
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-lower">{{prod.nombre}}</span>
+                    <span class="section-heading-upper">{{prod.precio}}</span>
+                    <span class="section-heading-upper">{{prod.categoria.nombre}}</span>                    
+                </h2>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
 {% endblock %}
