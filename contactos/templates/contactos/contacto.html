@@ -18,22 +18,25 @@
     }
 </style>
 
-<div class="formulario">
+
+<div>
     {% if "okEnviado" in request.GET %}
-        <div class="alert alert-success">Tu mensaje se ha enviado correctamente.</div>
+    <div class="alert alert-success">Tu mensaje se ha enviado correctamente.</div>
     {% elif "failNoEnviado" in request.GET %}
-        <div class="alert alert-danger">Ha ocurrido un error al enviar tu mensaje. Por favor, inténtalo de nuevo.</div>
+    <div class="alert alert-danger">Ha ocurrido un error al enviar tu mensaje. Por favor, inténtalo de nuevo.</div>
     {% endif %}
 
     {% if "errorFormulario" in request.GET %}
-        <div class="alert alert-warning">Por favor, completa todos los campos del formulario.</div>
+    <div class="alert alert-warning">Por favor, completa todos los campos del formulario.</div>
     {% endif %}
-
+</div>
+<div class=" formulario">
     <form action="" method="post">
         {% csrf_token %}
         <table style="margin: 20px auto;">{{miformulario.as_table}}</table>
         <input type="submit" value="Enviar" class="btn btn-primary">
     </form>
-</div>
 
+
+</div>
 {% endblock %}

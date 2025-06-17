@@ -17,6 +17,7 @@ class CategoriaProd(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
+    descripcion = models.TextField(default='Producto sin descripción disponible')
     categoria = models.ForeignKey(CategoriaProd, on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to='productos', null=True, blank=True)
     disponibilidad = models.BooleanField(default=True)
