@@ -11,6 +11,11 @@ class Carro:
     def agregar(self, producto):
         producto_id = str(producto.id)
         if producto_id not in self.carro:
-            self.carro[producto_id] = {'nombre': producto.nombre, 'precio': str(producto.precio), 'cantidad': 0}
+            self.carro[producto_id] = {
+                'nombre': producto.nombre, 
+                'precio': str(producto.precio), 
+                'cantidad': 0,
+                'imagen': producto.imagen.url 
+                }
         self.carro[producto_id]['cantidad'] += 1
         self.guardar()
