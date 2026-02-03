@@ -7,6 +7,20 @@ Bienvenido a mi rincón en GitHub. Aquí encontrarás mis proyectos personales, 
 ---
 
 ## 🚀 Sobre mí
+---
+
+## 🛠️ Mi Stack Tecnológico
+
+### 🌐 Frontend & Scripting
+![My Skills](https://skillicons.dev/icons?i=js,html,css,tailwind,react)
+
+### 🐍 Backend & Automatización
+![My Skills](https://skillicons.dev/icons?i=py,django,flask,fastapi,botpress)
+
+### 🗄️ Bases de Datos & Herramientas
+![My Skills](https://skillicons.dev/icons?i=postgres,mongodb,mysql,git,github,vscode,postman)
+
+---
 
 - 🔭 **Proyecto actual:** Perfeccionando mi [Tienda Online]
 - 🌱 **Aprendiendo:** [Aquí puedes poner React, AWS, IA, etc.]
