@@ -4,24 +4,9 @@
 
 Bienvenido a mi rincón en GitHub. Aquí encontrarás mis proyectos personales, experimentos de código y herramientas que voy creando en mi camino como desarrollador. 
 
----
+
 
 ## 🚀 Sobre mí
----
-
-## 🛠️ Mi Stack Tecnológico
-
-### 🌐 Frontend & Scripting
-![My Skills](https://skillicons.dev/icons?i=js,html,css,tailwind,react)
-
-### 🐍 Backend & Automatización
-![My Skills](https://skillicons.dev/icons?i=py,django,flask,fastapi,botpress)
-
-### 🗄️ Bases de Datos & Herramientas
-![My Skills](https://skillicons.dev/icons?i=postgres,mongodb,mysql,git,github,vscode,postman)
-
----
-
 - 🔭 **Proyecto actual:** Perfeccionando mi [Tienda Online]
 - 🌱 **Aprendiendo:** [Aquí puedes poner React, AWS, IA, etc.]
 - 💬 **Hablemos de:** JavaScript, Python, APIs, bases de datos y automatización.
@@ -37,19 +22,22 @@ Bienvenido a mi rincón en GitHub. Aquí encontrarás mis proyectos personales, 
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@julio_riverab)
 
 ---
-
-## 📊 Estadísticas de GitHub
+## 📊 Mis Estadísticas de GitHub
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=JulioRB9&show_icons=true&theme=radical&hide_border=true" alt="Estadísticas de Julio" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=JulioRB9&layout=compact&theme=radical&hide_border=true" alt="Lenguajes más usados" />
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=JulioRB9&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true" />
+  
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JulioRB9&layout=compact&theme=radical&hide_border=true&langs_count=6" />
 </p>
 
----
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=JulioRB9&theme=radical&hide_border=true" alt="GitHub Streak" />
+</p>
+
 
 ## 🎬 Contenido reciente en YouTube
 
-- 🎥 [Título del Video 1](https://youtu.be/23vIfMPNyaw?si=wlOzUl58wRDQxl5n)
+- 🎥 [Administrador Responsivo](https://youtu.be/23vIfMPNyaw?si=wlOzUl58wRDQxl5n)
 
 ---
 
