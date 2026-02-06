@@ -18,7 +18,7 @@ def contacto(request):
             
 
             html_message = f"""
-                <h2 style="color: #2c3e50;">Nuevo mensaje de contacto</h2>
+                <h2 style="color: #2c3e50;">Recibistes un nuevo mensaje</h2>
                 <p><strong>Nombre:</strong> {nombre}</p>
                 <p><strong>Email:</strong> {email_usuario}</p>
                 <p><strong>Mensaje:</strong></p>
@@ -29,7 +29,7 @@ def contacto(request):
                 """
             # Enviar correo electrónico
             enviar_mensaje = EmailMessage(
-                subject="📩 Nuevo mensaje de contacto - APP Django",
+                subject="📩 Sistema - APP Django",
                 body=html_message,
                 from_email="",
                 to=["julio.rivera.1596@gmail.com"],
