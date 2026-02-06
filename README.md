@@ -1,67 +1,54 @@
-# ¡Hola, soy [Julio Rivera]! 👋
+# # ¡Hola, soy Julio Rivera! 👋
 
 🎯 **Apasionado por la tecnología | Creador de contenido**
 
-Bienvenido a mi perfil de GitHub. Aquí encontrarás proyectos personales, colaboraciones, herramientas y experimentos de programación. Siempre estoy aprendiendo y compartiendo lo que descubro.
+Bienvenido a mi rincón en GitHub. Aquí encontrarás mis proyectos personales, experimentos de código y herramientas que voy creando en mi camino como desarrollador. 
 
----
+
 
 ## 🚀 Sobre mí
-
-- 🔭 Actual estoy desarrollando: **[Tienda Online]**
-- 🌱 Aprendiendo: **[Lenguaje o Tecnología]**
-- 💬 Pregúntame sobre: **JavaScript, Python, APIs, bases de datos, automatización**
-- 📫 Cómo contactarme: usa cualquiera de mis redes sociales abajo 👇
+- 🔭 **Proyecto actual:** Perfeccionando mi [Tienda Online]
+- 🌱 **Aprendiendo:** [Aquí puedes poner React, AWS, IA, etc.]
+- 💬 **Hablemos de:** JavaScript, Python, APIs, bases de datos y automatización.
+- 📫 **Contacto:** Conecta conmigo a través de mis redes sociales.
 
 ---
 
 ## 📱 Conecta conmigo
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/JulioRB9)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white/)](https://www.linkedin.com/in/julio-rivera-bautista/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julio-rivera-bautista/)
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@Julio.Rivera.)
-<!-- [![Twitter](https://img.shields.io/badge/X-000000?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/tu-usuario) -->
-<!-- [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/tu-usuario) -->
 [![TikTok](https://img.shields.io/badge/TikTok-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://www.tiktok.com/@julio_riverab)
 
 ---
+## 📊 Mis Estadísticas de GitHub
 
-## 📊 GitHub Stats
+<p align="center">
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=JulioRB9&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true" />
+  
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=JulioRB9&layout=compact&theme=radical&hide_border=true&langs_count=6" />
+</p>
 
-![Tu Usuario's GitHub stats](https://github-readme-stats.vercel.app/api?username=JulioRB9&show_icons=true&theme=radical)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=JulioRB9&layout=compact&theme=radical)
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=JulioRB9&theme=radical&hide_border=true" alt="GitHub Streak" />
+</p>
+
+
+## 🎬 Contenido reciente en YouTube
+
+- 🎥 [Administrador Responsivo](https://youtu.be/23vIfMPNyaw?si=wlOzUl58wRDQxl5n)
 
 ---
 
-## 🎬 Últimos videos en YouTube
+# 🛠️ Proyecto Destacado: ProjectMaster
 
-<!-- You can use GitHub Actions or tools like GitHub Readme YouTube to auto-update this section -->
+> [!IMPORTANT]
+> **Requisito previo:** Para una correcta ejecución, consulta las [notas de configuración aquí](https://github.com/ISEATO-JR/Labs-SpeedTest/blob/main/Notas.txt).
 
-- 🎥 [Título del Video 1](https://youtu.be/23vIfMPNyaw?si=wlOzUl58wRDQxl5n)
-<!-- - 🎥 [Título del Video 2](https://youtube.com/watch?v=videoID) -->
+### ⚙️ Instalación y Uso
 
----
-
-Gracias por visitar mi perfil 💻✨  
-¡No olvides seguirme en mis redes para más contenido!
-
-# Proyecto personal
-> :memo: Requisito
-Para ejecutar la **APP**
-Sigue estos paso 
-[Link](https://github.com/ISEATO-JR/Labs-SpeedTest/blob/main/Notas.txt)
-
-## Requisito
-Instalar los paquetes que esta construido el proyecto.
-```bash
-pip install -r requirements.txt
-```
-## Clonar
-Despues de que instalastes las dependencia para que pueda ejecutar corre el proyecto
-ahora puede clonar el repositorio y navegar un proyecto que estoy realizando.
-
-```bash
-git clone git@github.com:JulioRB9/ProjectMaster.git
-```
-
-[Colaboracion](https://excalidraw.com/#room=140036f3d08e8acfa677,hNcW58CYI7mqX2RKzsp7gw)
+1. **Clonar el repositorio:**
+   ```bash
+   git clone git@github.com:JulioRB9/ProjectMaster.git
+   cd ProjectMaster
