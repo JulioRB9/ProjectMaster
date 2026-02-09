@@ -2,45 +2,74 @@ from django.shortcuts import render, redirect
 from .forms import FormularioContacto
 from django.core.mail import EmailMessage
 
-# Create your views here.
-# https://www.youtube.com/watch?v=_BOOv6GK-68&list=PLU8oAlHdN5BmfvwxFO7HdPciOCmmYneAB&index=45
 def contacto(request):
-
     formulario = FormularioContacto()
+
     if request.method == "POST":
         formulario = FormularioContacto(data=request.POST)
+        
         if formulario.is_valid():
-            # Aquí puedes procesar los datos del formulario
-            # Por ejemplo, enviar un correo electrónico o guardar en la base de datos
+            # 1. Recuperamos los datos con los NOMBRES NUEVOS
             nombre = formulario.cleaned_data["nombre"]
-            email_usuario = formulario.cleaned_data["emailUsuario"]
-            contenido = formulario.cleaned_data["contenido"]
-            
+            email = formulario.cleaned_data["email"]     # Antes era emailUsuario
+            servicio = formulario.cleaned_data["servicio"] # Nuevo campo
+            mensaje = formulario.cleaned_data["mensaje"] # Antes era contenido
 
+            # 2. Plantilla del correo actualizada con mejor diseño
             html_message = f"""
-                <h2 style="color: #2c3e50;">Recibistes un nuevo mensaje</h2>
-                <p><strong>Nombre:</strong> {nombre}</p>
-                <p><strong>Email:</strong> {email_usuario}</p>
-                <p><strong>Mensaje:</strong></p>
-                <div style="background-color: #f4f4f4; padding: 15px; border-left: 4px solid #3498db;">
-                    {contenido}
+            <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden;">
+                <div style="background-color: #1A365D; padding: 20px; text-align: center;">
+                    <h2 style="color: #ffffff; margin: 0;">Nuevo Lead desde la Web</h2>
                 </div>
-                <p style="font-size: 0.9em; color: #888;">Este mensaje fue enviado desde el formulario de contacto de tu sitio web.</p>
-                """
-            # Enviar correo electrónico
+                <div style="padding: 20px;">
+                    <p style="font-size: 16px;">Has recibido una nueva solicitud de presupuesto:</p>
+                    
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 10px; font-weight: bold; width: 30%;">Cliente:</td>
+                            <td style="padding: 10px;">{nombre}</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 10px; font-weight: bold;">Email:</td>
+                            <td style="padding: 10px;"><a href="mailto:{email}" style="color: #2B6CB0;">{email}</a></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 10px; font-weight: bold;">Interés:</td>
+                            <td style="padding: 10px; color: #d97706; font-weight: bold;">{servicio}</td>
+                        </tr>
+                    </table>
+
+                    <div style="background-color: #f8fafc; padding: 15px; border-left: 4px solid #2B6CB0; margin-top: 20px;">
+                        <p style="margin: 0; font-style: italic;">"{mensaje}"</p>
+                    </div>
+                </div>
+                <div style="background-color: #f1f1f1; padding: 10px; text-align: center; font-size: 12px; color: #888;">
+                    Mensaje enviado automáticamente desde tu sistema Django.
+                </div>
+            </div>
+            """
+
+            # 3. Configuración del envío
             enviar_mensaje = EmailMessage(
-                subject="📩 Sistema - APP Django",
+                subject=f"📦 Nuevo Lead: {nombre} - {servicio}", # Asunto más claro
                 body=html_message,
-                from_email="",
+                from_email="tu_correo_configurado@gmail.com", # Pon aquí el correo que envía (settings.EMAIL_HOST_USER)
                 to=["julio.rivera.1596@gmail.com"],
-                reply_to=[email_usuario]
+                reply_to=[email]
             )
-            # Configurar el contenido del mensaje como HTML
-            enviar_mensaje.content_subtype = "html"  # Importante: indica que el contenido es HTML
+            
+            enviar_mensaje.content_subtype = "html"
+
             try:
                 enviar_mensaje.send()
-                return redirect("/contactos/?okEnviado")
+                # Redirección de éxito
+                return redirect("/contactos/?okEnviado") 
             except Exception as e:
+                # Es útil imprimir el error en consola para depurar si falla
+                print(f"Error enviando correo: {e}")
                 return redirect("/contactos/?failNoEnviado")
+        else:
+            # Si el formulario no es válido, sería bueno saber por qué (debugging)
+            print(formulario.errors)
 
     return render(request, "contactos/contacto.html", {'miformulario': formulario})

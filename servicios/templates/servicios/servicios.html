@@ -1,20 +1,44 @@
 {% extends "appFrontend/indexMaster.html" %}
 {% load static %}
-{% block content %}
 
-{% for servicios in vServicios %}
-<section class="page-section clearfix">
+{% block content %}
+<section class="page-section">
     <div class="container">
-        <div class="intro">
-            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{servicios.imagen.url}}" alt="" style="width: 50%;">
-            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
-                <h2 class="section-heading mb-4">
-                    <span class="section-heading-lower">{{servicios.titulo}}</span>
-                    <span class="section-heading-upper">{{servicios.contenido}}</span>
-                </h2>
+        <div class="text-center mb-5">
+            <h2 class="section-heading">
+                <span class="section-heading-upper text-primary">Nuestras Soluciones</span>
+                <span class="section-heading-lower fw-bold">Servicios Especializados</span>
+            </h2>
+            <div class="mx-auto" style="width: 60px; height: 4px; background-color: #0d6efd; border-radius: 2px;"></div>
+        </div>
+
+        <div class="row g-4">
+            {% for servicio in vServicios %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm hover-card transition-all rounded-4 overflow-hidden">
+                    <div class="position-relative overflow-hidden" style="height: 200px;">
+                        <img src="{{ servicio.imagen.url }}" class="card-img-top w-100 h-100" alt="{{ servicio.titulo }}" style="object-fit: cover;">
+                        <div class="card-img-overlay d-flex align-items-start justify-content-end">
+                            <span class="badge bg-primary px-3 py-2 shadow">Activo</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <h3 class="h5 fw-bold mb-3 text-dark">{{ servicio.titulo }}</h3>
+                        <p class="card-text text-muted mb-4" style="font-size: 0.95rem; line-height: 1.6;">
+                            {{ servicio.contenido }}
+                        </p>
+                    </div>
+
+                    <div class="card-footer bg-white border-0 p-4 pt-0">
+                        <a href="#" class="btn btn-outline-primary btn-sm w-100 fw-bold rounded-pill">
+                            Saber más <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>
-{% endfor %}
 {% endblock %}

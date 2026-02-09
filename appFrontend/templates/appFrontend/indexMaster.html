@@ -17,42 +17,53 @@
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg fixed-top navbar-modern" id="mainNav">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark transition-all" id="mainNav">
     <div class="container">
-      <a class="navbar-brand fw-bold text-uppercase tracking-wider" href="{% url 'home' %}">Julio Rivera</a>
+        <a class="navbar-brand fw-bold text-uppercase d-flex align-items-center gap-2" href="{% url 'home' %}">
+            <div class="icon-brand bg-primary text-white rounded-circle d-flex align-items-center justify-content-center shadow-sm">
+                <i class="fas fa-cube"></i> </div>
+            <span class="tracking-wider text-dark brand-text">Julio Rivera</span></span>
+        </a>
 
-      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <button class="navbar-toggler border-0 shadow-none collapsed" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-3">
-          <li class="nav-item">
-            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Inicio</a>
-          </li>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link fw-medium text-dark {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}">Inicio</a>
+                </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% active_class 'servicios' %}" href="{% url 'servicios' %}">Servicios</a>
-          </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-medium text-dark {% active_class 'servicios' %}" href="{% url 'servicios' %}">Servicios</a>
+                </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% active_class 'tienda' %}" href="{% url 'tienda' %}">Tienda</a>
-          </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-medium text-dark {% active_class 'tienda' %}" href="{% url 'tienda' %}">Tienda</a>
+                </li>
 
-          <li class="nav-item">
-            <a class="nav-link {% active_class 'blog' %}" href="{% url 'blog' %}">Blogs</a>
-          </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-medium text-dark {% active_class 'blog' %}" href="{% url 'blog' %}">Blog</a>
+                </li>
 
-          <li class="nav-item">
-            <a class="btn btn-primary rounded-pill px-4" href="{% url 'contacto' %}">Contacto</a>
-          </li>
-        </ul>
-      </div>
+                <li class="nav-item d-none d-lg-block">
+                    <div class="vr h-100 mx-2 text-secondary"></div>
+                </li>
+
+                <li class="nav-item mt-3 mt-lg-0">
+                    <a class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm btn-nav-cta" href="{% url 'contacto' %}">
+                        Contacto <i class="fas fa-arrow-right ms-1 small"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
-
+</nav>
   <!-- coɴтeɴιdo cαмвιαɴтe o pαdre -->
   <!-- ☆:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::☆ -->
   {% block content %} {% endblock %}
@@ -60,16 +71,70 @@
   <!-- ☆:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::☆ -->
 
   <!-- Footer -->
-  <footer class="footer text-faded text-center py-5">
+<footer class="footer-modern text-white pt-5 pb-3">
     <div class="container">
-      <p class="m-0 mbt">
-        <a href="sample.html" class="link">Política de privacidad</a> ·
-        <a href="sample.html" class="link">Aviso legal</a> ·
-        <a href="sample.html" class="link">Cookies</a>
-      </p>
-      <p class="m-0 mbt1">&copy; Gestión de Pedidos 2020</p>
+        <div class="row g-4 justify-content-between">
+            
+            <div class="col-lg-4 col-md-6">
+                <h3 class="h4 fw-bold text-white mb-4">LOGISTICA<span class="text-primary">PRO</span></h3>
+                <p class="text-white-50 mb-4" style="line-height: 1.8;">
+                    Líderes en gestión de pedidos y distribución desde hace 75 años. Conectamos su negocio con el mundo a través de soluciones logísticas inteligentes y puntuales.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="text-white fw-bold mb-4">Empresa</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Nuestra Flota</a></li>
+                    <li><a href="#">Sostenibilidad</a></li>
+                    <li><a href="#">Trabaja con nosotros</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5 class="text-white fw-bold mb-4">Servicios</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">Envío Express</a></li>
+                    <li><a href="#">Carga Pesada</a></li>
+                    <li><a href="#">Última Milla</a></li>
+                    <li><a href="#">Almacenaje</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5 class="text-white fw-bold mb-4">Suscríbete</h5>
+                <p class="text-white-50 small mb-3">Recibe novedades sobre logística y ofertas exclusivas.</p>
+                <form action="#">
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control border-0" placeholder="Tu correo" aria-label="Email">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <hr class="border-secondary my-5 opacity-25">
+
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start">
+                <p class="small text-white-50 mb-0">&copy; 2026 Gestión de Pedidos S.L. Todos los derechos reservados.</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <ul class="list-inline small mb-0">
+                    <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Privacidad</a></li>
+                    <li class="list-inline-item"><span class="text-white-50 mx-2">|</span></li>
+                    <li class="list-inline-item"><a href="#" class="text-white-50 text-decoration-none">Términos</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </footer>
+</footer>
 
   <!-- Bootstrap -->
   <script src="{% static 'appFrontend/vendor/jquery/jquery.min.js' %}"></script>

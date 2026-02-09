@@ -1,28 +1,75 @@
 {% extends "appFrontend/indexMaster.html" %}
 {% load static %}
-{% block content %}
 
-<div class="container">
-    <div class="row">
-        {% for prod in productos %}
-        <div class="col-md-3">
-            <div class="card mb-3" style="max-width: 540px; margin: 10px 10px;">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{ prod.imagen.url }}" class="img-fluid rounded-start" alt="..." >
+{% block content %}
+<section class="shop-section py-5 bg-light">
+    <div class="container">
+        
+        <div class="row mb-5 align-items-center">
+            <div class="col-lg-6">
+                <h2 class="fw-bold text-dark">Nuestros Productos</h2>
+                <p class="text-muted">Calidad garantizada al mejor precio.</p>
+            </div>
+            <div class="col-lg-6 text-lg-end">
+                <div class="btn-group shadow-sm">
+                    <button type="button" class="btn btn-white border active">Todos</button>
+                    <button type="button" class="btn btn-white border">Ofertas</button>
+                    <button type="button" class="btn btn-white border">Nuevos</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4">
+            {% for prod in productos %}
+            <div class="col-sm-6 col-lg-4 col-xl-3">
+                <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden position-relative">
+                    
+                    <div class="product-img-wrap">
+                        {% if prod.imagen %}
+                            <img src="{{ prod.imagen.url }}" class="card-img-top" alt="{{ prod.nombre }}">
+                        {% else %}
+                            <img src="{% static 'appFrontend/img/no-image.jpg' %}" class="card-img-top" alt="Sin imagen">
+                        {% endif %}
+                        
+                        <div class="product-actions d-flex justify-content-center align-items-center gap-2">
+                            <button class="btn btn-light rounded-circle shadow-sm" title="Ver detalles">
+                                <i class="fas fa-eye text-primary"></i>
+                            </button>
+                            <button class="btn btn-primary rounded-circle shadow-sm" title="Añadir al carrito">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{{prod.nombre}}</h5>
-                            <p class="card text">{{prod.precio}}&nbsp; $</p>
-                            <p class="card-text">{{prod.descripcion}}</p>
+
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="mb-2">
+                            <small class="text-uppercase text-muted fw-bold" style="font-size: 0.75rem;">Categoría</small>
+                        </div>
+                        
+                        <h5 class="card-title fw-bold text-dark mb-2">{{ prod.nombre|truncatechars:40 }}</h5>
+                        
+                        <p class="card-text text-muted small flex-grow-1">
+                            {{ prod.descripcion|truncatewords:15 }}
+                        </p>
+                        
+                        <div class="d-flex align-items-center justify-content-between mt-3 pt-3 border-top">
+                            <span class="h4 mb-0 fw-bold text-primary">${{ prod.precio|floatformat:2 }}</span>
+                            <button class="btn btn-outline-primary btn-sm rounded-pill d-md-none">
+                                Comprar
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <div class="col-12 text-center py-5">
+                <div class="text-muted">
+                    <i class="fas fa-box-open fa-3x mb-3"></i>
+                    <h4>No hay productos disponibles por el momento.</h4>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-
+</section>
 {% endblock %}
