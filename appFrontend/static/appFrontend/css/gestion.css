@@ -56,22 +56,57 @@ body {
     padding-bottom: 0.8rem;
 }
 
-/* Logotipo */
-.icon-brand {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-    transition: transform 0.3s ease;
+/* --- BRANDING / LOGO STYLES --- */
+
+/* 1. Estilos para la Caja con Gradiente (Opción 1) */
+.brand-icon-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px; /* Bordes suaves (Squircle) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-5deg); /* Inclinación dinámica */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.navbar-brand:hover .icon-brand {
-    transform: rotate(15deg);
+.gradient-bg {
+    background: linear-gradient(135deg, #0d6efd 0%, #1A365D 100%);
 }
 
-.brand-text {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: #1A365D; /* Azul oscuro corporativo */
+/* Efecto al pasar el mouse por el logo */
+.navbar-brand:hover .brand-icon-box {
+    transform: rotate(0deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3) !important;
+}
+
+/* 2. Estilos para el Monograma (Opción 2) */
+.brand-monogram {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.2rem;
+    letter-spacing: -1px;
+    border: 2px solid #fff;
+    outline: 2px solid #1A365D; /* Doble borde para efecto premium */
+}
+
+/* 3. Utilidades de Texto */
+.tracking-tight {
+    letter-spacing: -0.5px;
+}
+
+.lh-1 {
+    line-height: 1;
+}
+
+/* Ajuste fino para el texto del nombre */
+.navbar-brand {
+    text-decoration: none !important; /* Asegura que no haya subrayado */
 }
 
 /* Enlaces de Navegación */
