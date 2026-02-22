@@ -1,0 +1,61 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{{ title }} | Corporate Portal{% endblock %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            <i class="fas fa-building me-2"></i> Corporate Portal
+        </a>
+    </h1>
+{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <style>
+        /* Redefinimos las variables CSS globales del admin de Django */
+        :root {
+            /* Color principal del header (tu --primary-dark) */
+            --primary: #1c2331; 
+            /* Color secundario para títulos de módulos y botones */
+            --secondary: #2c3e50; 
+            
+            /* Colores de enlaces */
+            --link-fg: #007bff;
+            --link-hover-color: #0056b3;
+            
+            /* Header */
+            --header-color: #ffffff;
+            --header-branding-color: #ffffff;
+            --header-bg: var(--primary);
+            --header-link-color: #ffffff;
+            
+            /* Barra de navegación (Breadcrumbs) - usando tu gris claro */
+            --breadcrumbs-bg: #e9ecef; 
+            --breadcrumbs-fg: #6c757d;
+            --breadcrumbs-link-fg: var(--primary);
+            
+            /* Botones de "Guardar", "Añadir", etc. */
+            --button-bg: var(--primary);
+            --button-hover-bg: #141a26;
+            
+            /* Color de mensajes de éxito (manteniendo tu verde seguro) */
+            --message-success-bg: #28a745;
+        }
+
+        /* Pequeño ajuste para separar el ícono del texto en el header */
+        #branding h1 a i {
+            margin-right: 8px;
+        }
+
+        /* Aseguramos que los enlaces en la barra gris se vean bien */
+        div.breadcrumbs a:focus, div.breadcrumbs a:hover {
+            color: #000;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Corporativo - Inicio de Sesión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1c2331;
+            --primary-text: #ffffff;
+            --input-bg: #e9ecef;
+            --secure-color: #28a745;
+            --link-color: #007bff;
+            --footer-text: #6c757d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #fff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .login-header {
+            background-color: var(--primary-dark);
+            color: var(--primary-text);
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            color: var(--primary-text);
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .login-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h2 {
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .login-header p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .login-body {
+            padding: 2rem;
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: var(--primary-dark);
+        }
+
+        .form-control {
+            background-color: var(--input-bg);
+            border: 1px solid #ced4da;
+            border-radius: 0.375rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus {
+            background-color: #fff;
+            box-shadow: none;
+            border-color: #a0a7b3;
+        }
+
+        .secure-connection {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--footer-text);
+        }
+
+        .secure-connection i {
+            color: var(--secure-color);
+            margin-right: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-login {
+            background-color: var(--primary-dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #141a26;
+        }
+
+        .login-links {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .login-links a {
+            color: var(--primary-dark);
+            text-decoration: none;
+            margin: 0 0.3rem;
+        }
+
+        .login-links a:hover {
+            text-decoration: underline;
+        }
+
+        .login-footer {
+            padding: 1rem;
+            background-color: var(--input-bg);
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--footer-text);
+        }
+
+        .alert-danger {
+            font-size: 0.9rem;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <div class="login-header">
+            <button class="close-btn" onclick="window.history.back();"><i class="fas fa-times"></i></button>
+            <i class="fas fa-building login-icon"></i>
+            <h2>Corporate Portal</h2>
+            <p>Employee Login</p>
+        </div>
+        <div class="login-body">
+
+            {% if form.errors and not form.non_field_errors %}
+            <div class="alert alert-danger text-center" role="alert">
+                <i class="fas fa-exclamation-circle me-2"></i> Por favor corrija los errores abajo.
+            </div>
+            {% endif %}
+
+            {% if form.non_field_errors %}
+            <div class="alert alert-danger text-center" role="alert">
+                {% for error in form.non_field_errors %}
+                    <i class="fas fa-exclamation-circle me-2"></i> {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <div class="alert alert-info text-center" role="alert">
+                Estás autenticado como {{ user.username }}, pero no tienes permisos de administrador.
+            </div>
+            {% endif %}
+
+            <form id="loginForm" method="post" action="{{ app_path }}">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="username_input" class="form-label">Usuario o Email Corporativo</label>
+                    <input type="text" name="username" class="form-control" id="username_input"
+                        placeholder="employee@company.com" required autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="password_input" class="form-label">Contraseña</label>
+                    <input type="password" name="password" class="form-control" id="password_input"
+                        placeholder="Enter your password" required>
+                </div>
+                <div class="secure-connection">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure SSL Connection</span>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary btn-login">Sign In to Portal</button>
+                </div>
+
+                <input type="hidden" name="next" value="{{ next|default:'' }}">
+
+                <div class="login-links">
+                    <a href="#">Forgot Password?</a> | <a href="#">IT Support</a>
+                </div>
+            </form>
+        </div>
+        <div class="login-footer">
+            &copy; {% now "Y" %} Corporate Systems Inc. All rights reserved.
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
