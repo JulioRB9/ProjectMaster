@@ -1,32 +1,59 @@
-/* Variables para mantener consistencia */
+/* =========================================
+   1. VARIABLES GLOBALES
+   ========================================= */
 :root {
-    --primary-color: #1A365D;
+    /* Colores */
+    --primary-color: #1a365d;
     --accent-color: #0d6efd;
+    --accent-hover: #0b5ed7;
+    --text-main: #334155;
     --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --bg-dark: #0f172a;
+
+    /* Sombras (Consistencia visual) */
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 10px 20px rgba(13, 110, 253, 0.3);
+
+    /* Transiciones */
+    --transition-base: all 0.3s ease;
+    --transition-bounce: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Tipografía y Cuerpo */
+/* =========================================
+   2. BASE Y TIPOGRAFÍA
+   ========================================= */
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #f8fafc !important; /* Fondo claro para mayor limpieza */
-    color: #334155;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-main);
 }
 
-/* Hero Customization */
-.hero-section {
-    padding-top: 8rem !important;
-    padding-bottom: 5rem !important;
+/* =========================================
+   3. UTILIDADES (Clases reutilizables)
+   ========================================= */
+.tracking-tight {
+    letter-spacing: -0.5px;
 }
 
-.hero-content {
-    z-index: 10;
-    position: relative;
-    border-left: 6px solid var(--accent-color) !important;
+.tracking-wider {
+    letter-spacing: 0.1rem;
 }
 
-/* Efectos de imágenes */
+.lh-1 {
+    line-height: 1;
+}
+
+.transition-all {
+    transition: var(--transition-base);
+}
+
 .shadow-2-strong {
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--shadow-strong);
 }
 
 .icon-circle {
@@ -38,49 +65,59 @@ body {
     justify-content: center;
 }
 
-/* --- NAVBAR MODERN STYLES --- */
+.icon-square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+}
 
+/* =========================================
+   4. NAVEGACIÓN Y HEADER
+   ========================================= */
 #mainNav {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    background-color: transparent; /* Transparente por defecto */
-    transition: all 0.4s ease-in-out;
+    padding: 1.5rem 0;
+    background-color: transparent; /* Transparente por defecto*/
+    transition: var(--transition-base);
 }
 
 /* Estado cuando se hace Scroll (Javascript activará esta clase) */
 #mainNav.navbar-scrolled {
     background-color: rgba(255, 255, 255, 0.95); /* Blanco casi sólido */
     backdrop-filter: blur(10px); /* Efecto cristal */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    padding-top: 0.8rem;
-    padding-bottom: 0.8rem;
+    box-shadow: var(--shadow-md);
+    padding: 0.8rem 0;
 }
 
-/* --- BRANDING / LOGO STYLES --- */
+/* BRANDING / LOGO */
+.navbar-brand {
+    text-decoration: none;
+}
 
-/* 1. Estilos para la Caja con Gradiente (Opción 1) */
 .brand-icon-box {
     width: 42px;
     height: 42px;
-    border-radius: 12px; /* Bordes suaves (Squircle) */
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: rotate(-5deg); /* Inclinación dinámica */
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: rotate(-5deg);
+    transition: var(--transition-bounce);
 }
 
 .gradient-bg {
-    background: linear-gradient(135deg, #0d6efd 0%, #1A365D 100%);
+    background: linear-gradient(135deg,
+            var(--accent-color) 0%,
+            var(--primary-color) 100%);
 }
 
-/* Efecto al pasar el mouse por el logo */
 .navbar-brand:hover .brand-icon-box {
     transform: rotate(0deg) scale(1.1);
-    box-shadow: 0 10px 20px rgba(13, 110, 253, 0.3) !important;
+    box-shadow: var(--shadow-glow);
 }
 
-/* 2. Estilos para el Monograma (Opción 2) */
 .brand-monogram {
     width: 45px;
     height: 45px;
@@ -92,130 +129,103 @@ body {
     font-size: 1.2rem;
     letter-spacing: -1px;
     border: 2px solid #fff;
-    outline: 2px solid #1A365D; /* Doble borde para efecto premium */
+    outline: 2px solid var(--primary-color);
 }
 
-/* 3. Utilidades de Texto */
-.tracking-tight {
-    letter-spacing: -0.5px;
-}
-
-.lh-1 {
-    line-height: 1;
-}
-
-/* Ajuste fino para el texto del nombre */
-.navbar-brand {
-    text-decoration: none !important; /* Asegura que no haya subrayado */
-}
-
-/* Enlaces de Navegación */
-#mainNav .nav-link {
-    color: #4a5568 !important; /* Gris profesional */
+/* ENLACES Y BOTONES NAV */
+/* Nota: Se aumentó la especificidad (.navbar-nav) para evitar usar !important contra Bootstrap */
+.navbar-nav .nav-link {
+    color: var(--text-muted);
     font-size: 0.95rem;
     position: relative;
     padding: 5px 0;
+    transition: color 0.3s ease;
 }
 
-#mainNav .nav-link:hover,
-#mainNav .nav-link.active {
-    color: #0d6efd !important; /* Azul Bootstrap */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--accent-color);
 }
 
 /* Efecto de subrayado animado */
-#mainNav .nav-link::after {
-    content: '';
+.navbar-nav .nav-link::after {
+    content: "";
     position: absolute;
     width: 0;
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #0d6efd;
+    background-color: var(--accent-color);
     transition: width 0.3s ease;
 }
 
-#mainNav .nav-link:hover::after,
-#mainNav .nav-link.active::after {
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
     width: 100%;
 }
 
-/* Botón CTA especial para el nav */
-.btn-nav-cta {
-    font-size: 0.9rem;
-    transition: transform 0.2s;
-}
-.btn-nav-cta:hover {
-    transform: translateY(-2px);
-}
-
-/* Animación del botón hamburguesa (Toggler) */
+/* TOGGLER MÓVIL (Hamburguesa animada) */
 .navbar-toggler {
     padding: 0;
+    border: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
 }
 
 .toggler-icon {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #1A365D;
+    background-color: var(--primary-color);
     margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     border-radius: 2px;
 }
 
-/* Animación X al abrir menú móvil */
 .navbar-toggler[aria-expanded="true"] .top-bar {
     transform: rotate(45deg);
     transform-origin: 10% 10%;
 }
+
 .navbar-toggler[aria-expanded="true"] .middle-bar {
     opacity: 0;
 }
+
 .navbar-toggler[aria-expanded="true"] .bottom-bar {
     transform: rotate(-45deg);
     transform-origin: 10% 90%;
 }
 
-/* Botones Modernos */
+/* =========================================
+   5. COMPONENTES GLOBALES
+   ========================================= */
+/* Botones */
 .btn-primary {
     background-color: var(--accent-color);
     border: none;
     padding: 12px 30px;
-    transition: transform 0.2s;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    background-color: #0b5ed7;
+    background-color: var(--accent-hover);
 }
 
-/* Ajustes de espaciado */
-.tracking-wider {
-    letter-spacing: 0.1rem;
+.btn-nav-cta {
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
 }
 
-/* Media Queries para corregir el diseño antiguo */
-@media (max-width: 991px) {
-    .hero-section {
-        padding-top: 5rem !important;
-    }
-    .hero-content {
-        margin-bottom: 2rem;
-    }
+.btn-nav-cta:hover {
+    transform: translateY(-2px);
 }
 
-/* Animación de elevación para las tarjetas de servicios */
-.hover-card {
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    background-color: #ffffff;
-}
-
-.hover-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
-}
-
-/* Ajuste para los títulos de sección en servicios */
+/* Secciones generales */
 .section-heading-upper {
     font-size: 1rem;
     font-weight: 700;
@@ -226,41 +236,68 @@ body {
 
 .section-heading-lower {
     font-size: 2.5rem;
-    color: #1A365D;
+    color: var(--primary-color);
 }
 
-/* Transiciones suaves */
-.transition-all {
-    transition: all 0.3s ease;
-}
-
-/* Estilo para los badges sobre las imágenes */
 .badge {
     font-weight: 600;
     letter-spacing: 0.5px;
     border-radius: 8px;
 }
-/* --- TIENDA MODERNA --- */
 
-.shop-section {
-    background-color: #f8fafc; /* Gris muy suave */
+/* Formularios */
+.form-floating>.form-control:focus,
+.form-floating>.form-select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
 }
 
-/* Tarjeta del producto */
+/* =========================================
+   6. SECCIONES ESPECÍFICAS
+   ========================================= */
+
+/* --- HERO --- */
+.hero-section {
+    padding: 8rem 0 5rem 0;
+}
+
+.hero-content {
+    z-index: 10;
+    position: relative;
+    border-left: 6px solid var(--accent-color);
+}
+
+/* --- TARJETAS (Servicios / Hover genérico) --- */
+.hover-card {
+    transition: var(--transition-smooth);
+    background-color: #ffffff;
+}
+
+.hover-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* --- TIENDA --- */
+.shop-section {
+    background-color: var(--bg-light);
+}
+
 .product-card {
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: var(--transition-smooth);
     background: #fff;
+    overflow: hidden;
+    /* Asegura que la imagen no se salga al hacer zoom */
 }
 
 .product-card:hover {
-    transform: translateY(-8px); /* Efecto de elevación */
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
 }
 
-/* Contenedor de imagen fijo para evitar saltos de altura */
 .product-img-wrap {
     position: relative;
-    height: 250px; /* Altura fija para uniformidad */
+    height: 250px;
     width: 100%;
     overflow: hidden;
     background-color: #fff;
@@ -269,24 +306,22 @@ body {
 .product-img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta la imagen sin deformarla */
+    object-fit: cover;
     object-position: center;
     transition: transform 0.5s ease;
 }
 
-/* Efecto Zoom en la imagen al hacer hover */
 .product-card:hover .product-img-wrap img {
     transform: scale(1.08);
 }
 
-/* Overlay de acciones (Botones flotantes) */
 .product-actions {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo sutil */
+    background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(2px);
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -296,7 +331,6 @@ body {
     opacity: 1;
 }
 
-/* Botones de acción dentro de la imagen */
 .product-actions .btn {
     transform: translateY(20px);
     transition: transform 0.3s ease;
@@ -311,49 +345,27 @@ body {
     transform: translateY(0);
 }
 
-/* Ajustes de tipografía */
 .card-title {
     font-size: 1.1rem;
     line-height: 1.4;
 }
 
-/* --- ESTILOS DE CONTACTO --- */
-
-/* Iconos cuadrados con fondo suave */
-.icon-square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    flex-shrink: 0;
-}
-
-/* Mapa en escala de grises para no distraer (Efecto Ingeniero) */
+/* --- CONTACTO --- */
 .map-container iframe {
     filter: grayscale(100%) invert(0%);
     transition: filter 0.3s ease;
 }
 
 .map-container:hover iframe {
-    filter: grayscale(0%); /* Color al pasar el mouse */
+    filter: grayscale(0%);
 }
 
-/* Inputs flotantes personalizados */
-.form-floating > .form-control:focus,
-.form-floating > .form-select:focus {
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
-}
-
-/* --- ESTILOS DEL FOOTER --- */
-
+/* --- FOOTER --- */
 .footer-modern {
-    background-color: #0f172a; /* Azul muy oscuro (Dark Slate) */
+    background-color: var(--bg-dark);
     font-size: 0.9rem;
 }
 
-/* Animación de enlaces en el footer */
 .footer-links li {
     margin-bottom: 12px;
 }
@@ -361,26 +373,25 @@ body {
 .footer-links a {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     display: inline-block;
 }
 
 .footer-links a:hover {
     color: #ffffff;
-    transform: translateX(5px); /* Pequeño desplazamiento a la derecha */
+    transform: translateX(5px);
 }
 
-/* Botones sociales redondos */
 .social-btn {
     width: 36px;
     height: 36px;
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     color: white;
-    transition: all 0.3s ease;
+    transition: var(--transition-base);
     text-decoration: none;
 }
 
@@ -388,4 +399,18 @@ body {
     background-color: var(--accent-color);
     color: white;
     transform: translateY(-3px);
+}
+
+/* =========================================
+   7. MEDIA QUERIES (Responsividad)
+   ========================================= */
+@media (max-width: 991px) {
+    .hero-section {
+        padding: 5rem 0;
+        /* Ajuste limpio sin !important */
+    }
+
+    .hero-content {
+        margin-bottom: 2rem;
+    }
 }

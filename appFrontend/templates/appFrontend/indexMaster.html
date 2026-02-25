@@ -13,6 +13,17 @@
 
     <!-- Styles -->
     <link href="{% static 'appFrontend/css/gestion.css' %}" rel="stylesheet" />
+    <!-- <script>
+    // Script para cambiar el estilo del navbar al hacer scroll
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('mainNav');
+        if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+        } else {
+            navbar.classList.remove('navbar-scrolled');
+        }
+    });
+</script> -->
 </head>
 
 <body>
@@ -23,7 +34,6 @@
                 <div class="brand-monogram bg-dark text-white shadow-sm">
                     <span>JR</span>
                 </div>
-
                 <span class="fw-bold text-dark fs-4 tracking-tight">
                     Julio<span class="text-primary">.dev</span>
                 </span>
@@ -86,8 +96,8 @@
                     </li>
                     {% else %}
                     <li class="nav-item mt-3 mt-lg-0">
-                        <a class="btn btn-outline-dark rounded-pill px-4 fw-bold shadow-sm transition-all"
-                            href="" style="border-width: 2px;">
+                        <a class="btn btn-outline-dark rounded-pill px-4 fw-bold shadow-sm transition-all" href=""
+                            style="border-width: 2px;">
                             <i class="far fa-user me-1"></i> Acceder
                         </a>
                     </li>
@@ -185,6 +195,7 @@
     <!-- Bootstrap -->
     <script src="{% static 'appFrontend/vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'appFrontend/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'appFrontend/js/script.js' %}"></script>
 </body>
 
 </html>
