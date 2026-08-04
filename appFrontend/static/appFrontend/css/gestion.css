@@ -77,18 +77,51 @@ body {
 /* =========================================
    4. NAVEGACIÓN Y HEADER
    ========================================= */
-#mainNav {
-    padding: 1.5rem 0;
-    background-color: transparent; /* Transparente por defecto*/
+/* Top Announcement Banner */
+.top-announcement-bar {
+    background: linear-gradient(90deg, #0f172a 0%, #1e293b 40%, #1a365d 100%);
+    color: #e2e8f0;
+    font-size: 0.85rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1040;
+}
+
+.top-announcement-bar .badge-promo {
+    background: linear-gradient(135deg, #0d6efd 0%, #2563eb 100%);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.25rem 0.6rem;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(13, 110, 253, 0.4);
+}
+
+.top-announcement-bar a {
+    color: #93c5fd;
+    text-decoration: none;
     transition: var(--transition-base);
 }
 
-/* Estado cuando se hace Scroll (Javascript activará esta clase) */
+.top-announcement-bar a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+#mainNav {
+    padding: 1.25rem 0;
+    background-color: transparent;
+    transition: var(--transition-base);
+}
+
+/* Estado cuando se hace Scroll */
 #mainNav.navbar-scrolled {
-    background-color: rgba(255, 255, 255, 0.95); /* Blanco casi sólido */
-    backdrop-filter: blur(10px); /* Efecto cristal */
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
     box-shadow: var(--shadow-md);
-    padding: 0.8rem 0;
+    padding: 0.6rem 0;
 }
 
 /* BRANDING / LOGO */
@@ -133,13 +166,14 @@ body {
 }
 
 /* ENLACES Y BOTONES NAV */
-/* Nota: Se aumentó la especificidad (.navbar-nav) para evitar usar !important contra Bootstrap */
 .navbar-nav .nav-link {
-    color: var(--text-muted);
+    color: var(--text-main);
     font-size: 0.95rem;
+    font-weight: 500;
     position: relative;
-    padding: 5px 0;
+    padding: 6px 12px;
     transition: color 0.3s ease;
+    border-radius: 8px;
 }
 
 .navbar-nav .nav-link:hover,
@@ -153,15 +187,17 @@ body {
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
-    left: 0;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: var(--accent-color);
     transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
 .navbar-nav .nav-link:hover::after,
 .navbar-nav .nav-link.active::after {
-    width: 100%;
+    width: 60%;
 }
 
 /* TOGGLER MÓVIL (Hamburguesa animada) */
@@ -203,22 +239,25 @@ body {
    ========================================= */
 /* Botones */
 .btn-primary {
-    background-color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #2563eb 100%);
     border: none;
     padding: 12px 30px;
-    transition:
-        transform 0.2s ease,
-        background-color 0.2s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(13, 110, 253, 0.3);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    background-color: var(--accent-hover);
+    box-shadow: 0 8px 22px rgba(13, 110, 253, 0.45);
+    background: linear-gradient(135deg, #0b5ed7 0%, #1d4ed8 100%);
 }
 
 .btn-nav-cta {
     font-size: 0.9rem;
-    transition: transform 0.2s ease;
+    padding: 8px 22px;
+    border-radius: 50px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-nav-cta:hover {
@@ -245,6 +284,74 @@ body {
     border-radius: 8px;
 }
 
+/* Glassmorphic Card */
+.glass-card {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Hero Ambient Light Glow */
+.hero-glow-bg {
+    position: absolute;
+    width: 380px;
+    height: 380px;
+    background: radial-gradient(circle, rgba(13, 110, 253, 0.15) 0%, rgba(13, 110, 253, 0) 70%);
+    top: -10%;
+    left: -10%;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-glow-bg-right {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, rgba(59, 130, 246, 0) 70%);
+    bottom: -15%;
+    right: -10%;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Hero Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(13, 110, 253, 0.08);
+    border: 1px solid rgba(13, 110, 253, 0.2);
+    color: var(--accent-color);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Floating Stat Badges */
+.floating-stat-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 12px 18px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    z-index: 5;
+    transition: var(--transition-bounce);
+}
+
+.floating-stat-badge:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
 /* Formularios */
 .form-floating>.form-control:focus,
 .form-floating>.form-select:focus {
@@ -258,7 +365,7 @@ body {
 
 /* --- HERO --- */
 .hero-section {
-    padding: 8rem 0 5rem 0;
+    padding: 8rem 0 6rem 0;
 }
 
 .hero-content {
@@ -289,6 +396,8 @@ body {
     overflow: hidden;
     /* Asegura que la imagen no se salga al hacer zoom */
 }
+
+
 
 .product-card:hover {
     transform: translateY(-8px);

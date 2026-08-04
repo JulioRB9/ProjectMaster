@@ -1,34 +1,36 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos & Logística | Julio.dev</title>
     {% load static %}
     {% load nav_tags %}
-    <!-- Bootstrap -->
+
+    <!-- Bootstrap 5 -->
     <link href="{% static 'appFrontend/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
 
-    <!-- Fonts -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Styles -->
     <link href="{% static 'appFrontend/css/gestion.css' %}" rel="stylesheet" />
-    <!-- <script>
-    // Script para cambiar el estilo del navbar al hacer scroll
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('mainNav');
-        if (window.scrollY > 50) {
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            navbar.classList.remove('navbar-scrolled');
-        }
-    });
-</script> -->
 </head>
 
 <body>
+    <!-- Top Announcement & Promo Banner Bar -->
+
+
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark transition-all" id="mainNav">
+    <nav class="navbar navbar-expand-lg sticky-top transition-all" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{% url 'home' %}">
                 <div class="brand-monogram bg-dark text-white shadow-sm">
@@ -48,26 +50,31 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-lg-4">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center gap-lg-3">
 
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark {% if request.path == '/' %}active{% endif %}"
-                            href="{% url 'home' %}">Inicio</a>
+                        <a class="nav-link fw-medium {% if request.path == '/' %}active{% endif %}"
+                            href="{% url 'home' %}">
+                            <i class="fas fa-home small me-1 opacity-75"></i> Inicio
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark {% active_class 'servicios' %}"
-                            href="{% url 'servicios' %}">Servicios</a>
+                        <a class="nav-link fw-medium {% active_class 'servicios' %}" href="{% url 'servicios' %}">
+                            <i class="fas fa-cubes small me-1 opacity-75"></i> Servicios
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark {% active_class 'tienda' %}"
-                            href="{% url 'tienda' %}">Tienda</a>
+                        <a class="nav-link fw-medium {% active_class 'tienda' %}" href="{% url 'tienda' %}">
+                            <i class="fas fa-store small me-1 opacity-75"></i> Tienda
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link fw-medium text-dark {% active_class 'blog' %}"
-                            href="{% url 'blog' %}">Blog</a>
+                        <a class="nav-link fw-medium {% active_class 'blog' %}" href="{% url 'blog' %}">
+                            <i class="fas fa-newspaper small me-1 opacity-75"></i> Blog
+                        </a>
                     </li>
 
                     <li class="nav-item d-none d-lg-block">
@@ -78,33 +85,36 @@
                     <li class="nav-item dropdown mt-3 mt-lg-0">
                         <a class="nav-link dropdown-toggle fw-bold text-dark d-flex align-items-center gap-2" href="#"
                             id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                                style="width: 30px; height: 30px;">
+                            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold shadow-sm"
+                                style="width: 32px; height: 32px; font-size: 0.85rem;">
                                 {{ user.username|slice:":1"|upper }}
                             </div>
                             <span>{{ user.username }}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-3 mt-2"
                             aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Mi Perfil</a></li>
-                            <li><a class="dropdown-item" href="#">Mis Pedidos</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-user me-2 text-primary"></i>Mi
+                                    Perfil</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-box me-2 text-primary"></i>Mis
+                                    Pedidos</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item text-danger" href="">Cerrar Sesión</a></li>
+                            <li><a class="dropdown-item text-danger" href="#"><i
+                                        class="fas fa-sign-out-alt me-2"></i>Cerrar Sesión</a></li>
                         </ul>
                     </li>
                     {% else %}
                     <li class="nav-item mt-3 mt-lg-0">
-                        <a class="btn btn-outline-dark rounded-pill px-4 fw-bold shadow-sm transition-all" href=""
-                            style="border-width: 2px;">
+                        <a class="btn btn-outline-dark rounded-pill px-4 fw-bold shadow-sm transition-all" href="#"
+                            style="border-width: 2px; font-size: 0.88rem;">
                             <i class="far fa-user me-1"></i> Acceder
                         </a>
                     </li>
                     {% endif %}
 
                     <li class="nav-item mt-3 mt-lg-0">
-                        <a class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm btn-nav-cta"
+                        <a class="btn btn-primary rounded-pill px-4 fw-bold shadow-sm btn-nav-cta ms-lg-2"
                             href="{% url 'contacto' %}">
                             Contacto <i class="fas fa-arrow-right ms-1 small"></i>
                         </a>
@@ -112,7 +122,6 @@
 
                 </ul>
             </div>
-        </div>
         </div>
     </nav>
     <!-- coɴтeɴιdo cαмвιαɴтe o pαdre -->

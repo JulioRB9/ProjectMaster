@@ -3,150 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Corporativo - Inicio de Sesión</title>
+    <title>Acceso al Portal | Julio.dev</title>
+    
+    <!-- Bootstrap 5 & FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --primary-dark: #1c2331;
-            --primary-text: #ffffff;
-            --input-bg: #e9ecef;
-            --secure-color: #28a745;
-            --link-color: #007bff;
-            --footer-text: #6c757d;
+            --primary-color: #1e3a8a;
+            --accent-color: #2563eb;
+            --accent-bright: #38bdf8;
+            --text-dark: #1e293b;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at 15% 20%, rgba(56, 189, 248, 0.18) 0%, rgba(248, 250, 252, 0) 45%),
+                        radial-gradient(circle at 85% 80%, rgba(37, 99, 235, 0.15) 0%, rgba(248, 250, 252, 0) 50%),
+                        linear-gradient(135deg, #eff6ff 0%, #e0e7ff 50%, #f1f5f9 100%);
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            margin: 0;
+            padding: 1.5rem;
         }
 
         .login-container {
             width: 100%;
-            max-width: 400px;
-            background-color: #fff;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 430px;
+            background-color: #ffffff;
+            border-radius: 1.25rem;
+            box-shadow: 0 20px 45px -10px rgba(37, 99, 235, 0.18), 0 4px 12px rgba(0, 0, 0, 0.03);
             overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+        }
+
+        /* Top Vibrant Accent Line */
+        .login-container::before {
+            content: "";
+            display: block;
+            height: 5px;
+            width: 100%;
+            background: linear-gradient(90deg, #0d6efd 0%, #3b82f6 50%, #38bdf8 100%);
         }
 
         .login-header {
-            background-color: var(--primary-dark);
-            color: var(--primary-text);
-            padding: 2rem 1rem;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 60%, #2563eb 100%);
+            color: #ffffff;
+            padding: 2.25rem 1.5rem 1.75rem 1.5rem;
             text-align: center;
             position: relative;
         }
 
         .close-btn {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            color: var(--primary-text);
-            background: none;
+            top: 1.1rem;
+            right: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.15);
             border: none;
-            font-size: 1.2rem;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
 
-        .login-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: #ffffff;
+            transform: scale(1.08);
         }
 
-        .login-header h2 {
+        .brand-monogram {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.35rem;
+            letter-spacing: -1px;
+            background-color: #0f172a;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+            outline: 2px solid var(--accent-bright);
+            margin: 0 auto 0.75rem auto;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .brand-monogram:hover {
+            transform: scale(1.08) rotate(-3deg);
+        }
+
+        .brand-title {
+            font-weight: 800;
+            letter-spacing: -0.5px;
             margin: 0;
-            font-weight: 500;
+            font-size: 1.7rem;
+        }
+
+        .brand-title span.highlight {
+            color: var(--accent-bright);
         }
 
         .login-header p {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
+            margin-top: 0.3rem;
+            font-size: 0.88rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0;
+            font-weight: 400;
         }
 
         .login-body {
-            padding: 2rem;
+            padding: 2.25rem 2rem 2rem 2rem;
         }
 
         .form-label {
-            font-weight: 500;
-            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            margin-bottom: 0.4rem;
+        }
+
+        .input-group-text {
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-right: none;
+            border-top-left-radius: 0.6rem;
+            border-bottom-left-radius: 0.6rem;
+            color: #64748b;
         }
 
         .form-control {
-            background-color: var(--input-bg);
-            border: 1px solid #ced4da;
-            border-radius: 0.375rem;
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-top-right-radius: 0.6rem;
+            border-bottom-right-radius: 0.6rem;
             padding: 0.75rem 1rem;
             font-size: 0.95rem;
+            transition: all 0.2s ease;
         }
 
-        .form-control:focus {
-            background-color: #fff;
-            box-shadow: none;
-            border-color: #a0a7b3;
+        .input-group:focus-within .input-group-text {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            background-color: #eff6ff;
+        }
+
+        .input-group:focus-within .form-control {
+            background-color: #ffffff;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
         }
 
         .secure-connection {
-            display: flex;
+            display: inline-flex;
             align-items: center;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #059669;
             margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--footer-text);
         }
 
         .secure-connection i {
-            color: var(--secure-color);
-            margin-right: 0.5rem;
-            font-size: 1.1rem;
+            margin-right: 0.4rem;
         }
 
         .btn-login {
-            background-color: var(--primary-dark);
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
             border: none;
-            padding: 0.8rem 1.5rem;
+            padding: 0.85rem 1.5rem;
             font-size: 1rem;
-            font-weight: 500;
-            transition: background-color 0.3s ease;
+            font-weight: 700;
+            border-radius: 0.6rem;
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+            transition: all 0.25s ease;
         }
 
         .btn-login:hover {
-            background-color: #141a26;
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.45);
+            color: #ffffff;
         }
 
         .login-links {
             text-align: center;
             margin-top: 1.5rem;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
         .login-links a {
-            color: var(--primary-dark);
+            color: var(--accent-color);
             text-decoration: none;
-            margin: 0 0.3rem;
+            font-weight: 600;
+            transition: color 0.2s ease;
         }
 
         .login-links a:hover {
+            color: #1d4ed8;
             text-decoration: underline;
         }
 
         .login-footer {
             padding: 1rem;
-            background-color: var(--input-bg);
+            background-color: #f8fafc;
             text-align: center;
-            font-size: 0.8rem;
-            color: var(--footer-text);
+            font-size: 0.82rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            font-weight: 500;
         }
 
-        .alert-danger {
-            font-size: 0.9rem;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
+        .alert {
+            font-size: 0.88rem;
+            border-radius: 0.6rem;
         }
     </style>
 </head>
@@ -155,21 +242,32 @@
 
     <div class="login-container">
         <div class="login-header">
-            <button class="close-btn" onclick="window.history.back();"><i class="fas fa-times"></i></button>
-            <i class="fas fa-building login-icon"></i>
-            <h2>Corporate Portal</h2>
-            <p>Employee Login</p>
+            <button class="close-btn" onclick="window.history.back();" title="Volver">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- Brand Monogram & Name -->
+            <a class="navbar-brand d-inline-flex align-items-center justify-content-center text-decoration-none" href="{% url 'home' %}">
+                <div class="brand-monogram">
+                    <span>JR</span>
+                </div>
+            </a>
+            <h2 class="brand-title text-white">
+                Julio<span class="highlight">.dev</span>
+            </h2>
+            <p>Portal de Gestión & Logística</p>
         </div>
+
         <div class="login-body">
 
             {% if form.errors and not form.non_field_errors %}
-            <div class="alert alert-danger text-center" role="alert">
-                <i class="fas fa-exclamation-circle me-2"></i> Por favor corrija los errores abajo.
+            <div class="alert alert-danger text-center shadow-sm" role="alert">
+                <i class="fas fa-exclamation-circle me-2"></i> Por favor corrija los errores indicados abajo.
             </div>
             {% endif %}
 
             {% if form.non_field_errors %}
-            <div class="alert alert-danger text-center" role="alert">
+            <div class="alert alert-danger text-center shadow-sm" role="alert">
                 {% for error in form.non_field_errors %}
                     <i class="fas fa-exclamation-circle me-2"></i> {{ error }}
                 {% endfor %}
@@ -177,8 +275,8 @@
             {% endif %}
 
             {% if user.is_authenticated %}
-            <div class="alert alert-info text-center" role="alert">
-                Estás autenticado como {{ user.username }}, pero no tienes permisos de administrador.
+            <div class="alert alert-info text-center shadow-sm" role="alert">
+                Estás autenticado como <strong>{{ user.username }}</strong>, pero no tienes permisos de administración.
             </div>
             {% endif %}
 
@@ -187,31 +285,44 @@
 
                 <div class="mb-3">
                     <label for="username_input" class="form-label">Usuario o Email Corporativo</label>
-                    <input type="text" name="username" class="form-control" id="username_input"
-                        placeholder="employee@company.com" required autofocus>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" name="username" class="form-control" id="username_input"
+                            placeholder="usuario@dominio.com" required autofocus>
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     <label for="password_input" class="form-label">Contraseña</label>
-                    <input type="password" name="password" class="form-control" id="password_input"
-                        placeholder="Enter your password" required>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" name="password" class="form-control" id="password_input"
+                            placeholder="Ingrese su contraseña" required>
+                    </div>
                 </div>
-                <div class="secure-connection">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Secure SSL Connection</span>
+
+                <div class="text-center">
+                    <div class="secure-connection">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Conexión segura SSL cifrada</span>
+                    </div>
                 </div>
+
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-primary btn-login">Sign In to Portal</button>
+                    <button type="submit" class="btn btn-primary btn-login">
+                        <i class="fas fa-sign-in-alt me-2"></i> Iniciar Sesión
+                    </button>
                 </div>
 
                 <input type="hidden" name="next" value="{{ next|default:'' }}">
 
                 <div class="login-links">
-                    <a href="#">Forgot Password?</a> | <a href="#">IT Support</a>
+                    <a href="#">¿Olvidó su contraseña?</a> | <a href="#">Soporte Técnico</a>
                 </div>
             </form>
         </div>
         <div class="login-footer">
-            &copy; {% now "Y" %} Corporate Systems Inc. All rights reserved.
+            &copy; {% now "Y" %} Julio.dev - Todos los derechos reservados.
         </div>
     </div>
 
